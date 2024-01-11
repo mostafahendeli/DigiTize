@@ -153,132 +153,142 @@
     </div>
     <!-- Product Section -->
     <section
+      x-data="{products:[
+      {id:1 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:2 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:3 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:4 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:5 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:6 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:7 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:8 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:9 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:10 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:11 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      {id:12 , productTitle:'Apple Watch' , productPrice:'2999 تومان' ,productCategory:'Apple Watch', imgUrl:'/assets/images/images.jpeg'},
+      ]}"
       class="mt-9 px-4 grid grid-cols-2 gap-x-2 gap-y-9 md:grid-cols-3 lg:grid-cols-4"
     >
-      <!-- Product Item -->
-      <div class="bg-white rounded-xl shadow-lg p-2">
-        <!-- Product Image -->
-        <div class="bg-slate-200 rounded-xl relative">
-          <img src="/assets/images/images.jpeg" alt="" />
-          <!-- Favorite Icon -->
+      <template x-for="product in products" :key="product.id">
+        <div class="bg-white rounded-xl shadow-lg p-2">
+          <!-- Product Image -->
+          <div class="bg-slate-200 rounded-xl relative">
+            <img src="/assets/images/images.jpeg" alt="" />
+            <!-- Favorite Icon -->
+            <div
+              class="w-7 h-7 bg-gray-300 rounded-full flex justify-center items-center absolute top-2 right-2 cursor-pointer"
+            >
+              <svg
+                width="12"
+                height="10"
+                viewBox="0 0 12 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6.14091 1.48968C7.28571 0.416852 9.14175 0.416852 10.2865 1.48968C11.4314 2.56257 11.4314 4.30211 10.2865 5.375L6.11391 9.28531C5.99332 9.39831 5.79787 9.39831 5.67729 9.28531L1.50465 5.375C0.359779 4.30211 0.359779 2.56257 1.50465 1.48968C2.64945 0.416852 4.50548 0.416852 5.65028 1.48968L5.8956 1.71957L6.14091 1.48968Z"
+                  fill="#FF755C"
+                />
+              </svg>
+            </div>
+          </div>
+          <!-- Product Category -->
+          <div class="mt-5 flex flex-row justify-between items-center">
+            <p
+              x-text="product.productCategory"
+              class="text-slate-200 font-medium text-xs md:text-base"
+            ></p>
+            <!-- colors -->
+            <div x-data="{color:'red'}" class="flex flex-row">
+              <div
+                @click="color='red'"
+                :class="color === 'red' ? 'ring-2 ring-red-400':' ' "
+                class="bg-red-400 rounded-full w-4 h-4 flex justify-center items-center cursor-pointer border-2 border-white md:w-7 md:h-7"
+              >
+                <svg
+                  x-show="color==='red'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-3 h-3 md:w-5 md:h-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <div
+                @click="color='blue'"
+                :class="color === 'blue' ? 'ring-2 ring-blue-400':' ' "
+                class="bg-blue-400 rounded-full w-4 h-4 flex justify-center items-center cursor-pointer border-2 border-white md:w-7 md:h-7 -mr-1"
+              >
+                <svg
+                  x-show="color==='blue'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-3 h-3 md:w-5 md:h-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+              <div
+                @click="color='green'"
+                :class="color === 'green' ? 'ring-2 ring-green-400':' ' "
+                class="bg-green-400 rounded-full w-4 h-4 flex justify-center items-center cursor-pointer border-2 border-white md:w-7 md:h-7 -mr-1"
+              >
+                <svg
+                  x-show="color==='green'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-3 h-3 md:w-5 md:h-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m4.5 12.75 6 6 9-13.5"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
           <div
-            class="w-7 h-7 bg-gray-300 rounded-full flex justify-center items-center absolute top-2 right-2 cursor-pointer"
+            x-text="product.productTitle"
+            class="mt-4 font-medium text-xs md:text-lg"
           >
-            <svg
-              width="12"
-              height="10"
-              viewBox="0 0 12 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M6.14091 1.48968C7.28571 0.416852 9.14175 0.416852 10.2865 1.48968C11.4314 2.56257 11.4314 4.30211 10.2865 5.375L6.11391 9.28531C5.99332 9.39831 5.79787 9.39831 5.67729 9.28531L1.50465 5.375C0.359779 4.30211 0.359779 2.56257 1.50465 1.48968C2.64945 0.416852 4.50548 0.416852 5.65028 1.48968L5.8956 1.71957L6.14091 1.48968Z"
-                fill="#FF755C"
-              />
-            </svg>
+            ساعت هوشمند سری 6
+          </div>
+          <div
+            x-text="product.productPrice"
+            class="text-orange-700 font-medium text-sm text-center my-2 md:text-lg"
+          ></div>
+          <hr />
+          <div class="flex justify-center mt-2">
+            <button class="text-orange-400 font-bold md:text-lg">
+              ثبت سفارش
+            </button>
           </div>
         </div>
-        <!-- Product Category -->
-        <div class="mt-5 flex flex-row justify-between items-center">
-          <p class="text-slate-200 font-medium text-xs md:text-base">اپل</p>
-          <!-- colors -->
-          <div x-data="{color:'red'}" class="flex flex-row">
-            <div
-              @click="color='red'"
-              :class="color === 'red' ? 'ring-2 ring-red-400':' ' "
-              class="bg-red-400 rounded-full w-4 h-4 flex justify-center items-center cursor-pointer border-2 border-white md:w-7 md:h-7"
-            >
-              <svg
-                x-show="color==='red'"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-3 h-3 md:w-5 md:h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m4.5 12.75 6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <div
-              @click="color='blue'"
-              :class="color === 'blue' ? 'ring-2 ring-blue-400':' ' "
-              class="bg-blue-400 rounded-full w-4 h-4 flex justify-center items-center cursor-pointer border-2 border-white md:w-7 md:h-7 -mr-1"
-            >
-              <svg
-                x-show="color==='blue'"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-3 h-3 md:w-5 md:h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m4.5 12.75 6 6 9-13.5"
-                />
-              </svg>
-            </div>
-            <div
-              @click="color='green'"
-              :class="color === 'green' ? 'ring-2 ring-green-400':' ' "
-              class="bg-green-400 rounded-full w-4 h-4 flex justify-center items-center cursor-pointer border-2 border-white md:w-7 md:h-7 -mr-1"
-            >
-              <svg
-                x-show="color==='green'"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-3 h-3 md:w-5 md:h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m4.5 12.75 6 6 9-13.5"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="mt-4 font-medium text-xs md:text-lg">ساعت هوشمند سری 6</div>
-        <div
-          class="text-orange-700 font-medium text-sm text-center my-2 md:text-lg"
-        >
-          10,500,000 تومان
-        </div>
-        <hr />
-        <div class="flex justify-center mt-2">
-          <button class="text-orange-400 font-bold md:text-lg">
-            ثبت سفارش
-          </button>
-        </div>
-      </div>
-      <div class="bg-blue-500">2</div>
-      <div class="bg-blue-500">3</div>
-      <div class="bg-blue-500">4</div>
-      <div class="bg-blue-500">5</div>
-      <div class="bg-blue-500">6</div>
-      <div class="bg-blue-500">7</div>
-      <div class="bg-blue-500">8</div>
-      <div class="bg-blue-500">9</div>
-      <div class="bg-blue-500">10</div>
-      <div class="bg-blue-500">11</div>
-      <div class="bg-blue-500">12</div>
+      </template>
     </section>
-    <div></div>
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
