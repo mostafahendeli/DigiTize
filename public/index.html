@@ -231,12 +231,12 @@
     >
       <!-- sidebar  -->
       <div
-        class="md:col-span-2 lg:col-span-3 row-span-3 hidden md:block rounded-xl"
+        class="col-span-12 fixed bottom-0 right-0 left-0 z-10 md:static md:col-span-2 lg:col-span-3 row-span-3 md:block rounded-xl"
       >
         <div
-          class="bg-white rounded-xl px-2 lg:px-6 py-8 max-h-[calc(100vh_-_130px)] overflow-auto sticky top-28"
+          class="bg-white rounded-xl px-4 lg:px-6 py-8 md:max-h-[calc(100vh_-_130px)] md:overflow-auto md:sticky md:top-28"
         >
-          <div x-data="{selectedcategory:'tel'}">
+          <div class="hidden md:static" x-data="{selectedcategory:'tel'}">
             <div class="text-orange-400 mb-6 font-bold md:text-sm lg:text-xl">
               دسته بندی
             </div>
@@ -428,7 +428,7 @@
               </div>
             </div>
           </div>
-          <hr class="my-6" />
+          <hr class="hidden md:static my-6" />
           <div>
             <div class="text-orange-400 mb-6 font-bold md:text-sm lg:text-xl">
               فیلتر
@@ -730,6 +730,18 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="flex gap-x-6 gap-y-2 flex-wrap">
+            <button
+              class="flex-1 bg-orange-400 text-white p-2 text-xl rounded-md"
+            >
+              تایید
+            </button>
+            <button
+              class="flex-1 bg-orange-100 text-orange-500 p-2 text-xl border-2 outline-none border-orange-500 rounded-md"
+            >
+              لغو فیلتر
+            </button>
           </div>
         </div>
       </div>
